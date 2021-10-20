@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet(name = "registrationServlet", urlPatterns = "/reg")
+@WebServlet(name = "registrationServlet", urlPatterns = "/registration")
 public class RegistrationServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginServlet.class);
@@ -19,7 +19,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/registration.html").forward(req, resp);
+        req.getServletContext().getRequestDispatcher("/registration.html").forward(req, resp);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
 
         UserDaoImpl users = new UserDaoImpl();
         if (users.userIsExist(username, password)) {
-            resp.sendRedirect("/registration.html");
+            resp.sendRedirect("/registration");
         } else {
             if (users.saveUser(username, password)) {
                 CookieHelper.cookieCheck(resp, username, cookieCheck, session);

@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SEIMENS MUSIC SHOP</title>
+    <title>SIMENS MUSIC SHOP</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg" href="assets/icon.svg">
 </head>
 <body>
+<style>
+    body {
+        background: #171515 url(assets/background.jpg); /* Цвет фона и путь к файлу */
+        color: #FFFFFF; /* Цвет текста */
+    }
+</style>
 <header>
-
+    <img src="/assets/logo.png" alt="SIMENS MUSIC SHOP" id="logo">
 </header>
 <div class="login">
     <h1>Войти</h1>
@@ -17,7 +28,9 @@
         <label><input class="loginField" id="password" type="password" name="password" placeholder="Пароль"></label><br>
         <label><input class="remember" name="remember" type="checkbox" value="check">Запомнить меня?</label><br>
         <button id="lgn" type="submit" class="btn">Войти</button>
-        <a href="/reg">Sign up!</a>
+        <div style="text-align: center">
+            <a class='registration' href="/registration">Зарегистрироваться!</a>
+        </div>
     </form>
 </div>
 </body>
