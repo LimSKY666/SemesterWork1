@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>SIMENS MUSIC SHOP</title>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<form action="/login" method="post">
-    Login:
-    <input name="login" type="text"/>
-    <br>
-    Password:
-    <input name="password" type="password">
-    <br>
-    <input type="submit" value="Log in">
-</form>
+<header>
+
+</header>
+
+    <h1>Войти</h1>
+    <form method="post" action="/login">
+        <label><input class="loginField" id="text" type="text" name="username" placeholder="Логин"></label>
+        <label><input class="loginField" id="password" type="password" name="password" placeholder="Пароль"></label><br>
+        <label><input class="remember" name="remember" type="checkbox" value="check">Запомнить меня?</label><br>
+        <button id="lgn" type="submit" class="btn">Войти</button>
+        <div style="text-align: center;">
+            <a href="/reg">Sign up!</a>
+        </div>
+    </form>
+
 </body>
 </html>

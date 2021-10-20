@@ -2,34 +2,40 @@ package ru.kpfu.itis.sokolov.servlets;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.kpfu.itis.sokolov.model.User;
-import ru.kpfu.itis.sokolov.service.impl.UserServiceImpl;
+import ru.kpfu.itis.sokolov.helper.CookieHelper;
+import ru.kpfu.itis.sokolov.model.user.UserDaoImpl;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "registrationServlet", urlPatterns = "/reg")
 public class RegistrationServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginServlet.class);
-    private static final UserServiceImpl userServiceImpl = new UserServiceImpl();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("registration.html");
+        req.getRequestDispatcher("/registration.html").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstName = req.getParameter("first_name");
-        String secondName = req.getParameter("last_name");
-        String login = req.getParameter("login");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String username = req.getParameter("username");
         String password = req.getParameter("password");
-        userServiceImpl.save(new User(firstName,secondName,login,password));
-        resp.sendRedirect("login.html");
+        String cookieCheck = req.getParameter("remember");
+        HttpSession session = req.getSession();
+
+        UserDaoImpl users = new UserDaoImpl();
+        if (users.userIsExist(username, password)) {
+            resp.sendRedirect("/registration.html");
+        } else {
+            if (users.saveUser(username, password)) {
+                CookieHelper.cookieCheck(resp, username, cookieCheck, session);
+            }
+        }
     }
 }
