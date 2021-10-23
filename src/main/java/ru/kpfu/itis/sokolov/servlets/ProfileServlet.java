@@ -1,5 +1,7 @@
 package ru.kpfu.itis.sokolov.servlets;
 
+import ru.kpfu.itis.sokolov.model.music.Product;
+import ru.kpfu.itis.sokolov.model.purchases.PurchasesDB;
 import ru.kpfu.itis.sokolov.model.user.User;
 import ru.kpfu.itis.sokolov.model.user.UserDaoImpl;
 
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "profileServlet", urlPatterns = "/prof")
 public class ProfileServlet extends HttpServlet {
@@ -24,12 +27,33 @@ public class ProfileServlet extends HttpServlet {
         String registrationTimestamp = user.getRegistrationTimestamp().toString();
         String email = user.getEmail();
 
+        PurchasesDB purchasesDB = new PurchasesDB();
+        int purchasesCount = 0;
+        try {
+            purchasesCount = purchasesDB.getCountOfPurchase(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Product lastProduct = null;
+        try {
+            lastProduct = purchasesDB.getLastPurchase(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        req.setAttribute("purchasesCount", purchasesCount);
+        if (lastProduct == null) {
+            req.setAttribute("lastProductName", "-");
+        } else {
+            req.setAttribute("lastProductName", lastProduct.getName());
+        }
         req.setAttribute("registrationTimestamp", registrationTimestamp);
         if (email == null) {
             req.setAttribute("email", "-");
         } else {
             req.setAttribute("email", email);
         }
+
         req.getServletContext().getRequestDispatcher("/profilepage.jsp").forward(req, resp);
     }
 

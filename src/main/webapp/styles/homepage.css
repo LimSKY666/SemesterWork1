@@ -1,0 +1,13 @@
+header {
+    width: 100%;
+    background-color: #F8F9FA;
+    height: 152px;
+    font-family: 'Amatic SC', cursive;
+    font-size: x-large;
+}
+
+body {
+    background-color: #f2eaea;
+    margin: 0 auto;
+    padding: 0;
+}

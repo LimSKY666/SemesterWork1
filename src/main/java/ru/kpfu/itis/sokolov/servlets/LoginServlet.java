@@ -1,7 +1,5 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.kpfu.itis.sokolov.helper.CookieHelper;
 import ru.kpfu.itis.sokolov.model.user.UserDaoImpl;
 

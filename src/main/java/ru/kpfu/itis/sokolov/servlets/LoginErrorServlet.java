@@ -31,8 +31,6 @@ public class LoginErrorServlet extends HttpServlet {
         } else {
             if (users.userIsExist(username, password)) {
                 CookieHelper.cookieCheck(resp, username, cookieCheck, session);
-                resp.sendRedirect("/homepage");
-                session.setAttribute("username", username);
             } else {
                 resp.sendRedirect("/errorlogin");
             }

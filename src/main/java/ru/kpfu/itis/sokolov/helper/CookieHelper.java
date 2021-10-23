@@ -13,7 +13,7 @@ public class CookieHelper {
             cookie.setMaxAge(100);
             resp.addCookie(cookie);
         }
-        resp.sendRedirect("/homepage.jsp");
+        resp.sendRedirect("/homepage.ftl");
         session.setAttribute("username", username);
     }
 }
