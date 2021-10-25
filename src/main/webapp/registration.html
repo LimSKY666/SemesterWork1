@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:color="http://www.w3.org/1999/xhtml" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
     <title>SIMENS VINIL SHOP</title>
     <meta charset="UTF-8">
@@ -25,13 +25,13 @@
     <h1>Регистрация</h1>
     <form method="post" action="/registration">
         <label><input class="loginField" id="username" type="text" name="username" placeholder="Логин" onblur="checkUsername();"></label>
-        <p class="error" id="username-error">Логин уже занят</p>
-        <p class="error" id="username-size-error">Логин слишком короткий</p>
+        <p class="error" id="username-error" style="display: none; color: white">Логин уже занят</p>
+        <p class="error" id="username-size-error" style="display: none; color: white">Логин слишком короткий</p>
         <label><input class="loginField" id="password" type="password" name="password" placeholder="Пароль"></label><br>
         <label><input class="loginField" id="password-two" type="password" name="password-two" placeholder="Пароль повторно" onblur="checkPasswords();"></label><br>
-        <p class="error" id="password-error">Пароли не совпадают</p>
+        <p class="error" id="password-error" style="display: none; color: white">Пароли не совпадают</p>
         <label><input class="remember" name="remember" type="checkbox" value="check">Запомнить меня?</label><br>
-        <button id="lgn" class="btn">Зарегистрироваться</button>
+        <button id="lgn" class="btn" disabled="disabled">Зарегистрироваться</button>
         <div style="text-align: center;">
             <a class='loginText' href="/login">Войти!</a>
         </div>

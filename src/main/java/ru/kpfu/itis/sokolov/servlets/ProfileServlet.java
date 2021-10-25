@@ -24,7 +24,7 @@ public class ProfileServlet extends HttpServlet {
 
         UserDaoImpl users = new UserDaoImpl();
         User user = users.getUserByName(username);
-        String registrationTimestamp = user.getRegistrationTimestamp().toString();
+        String registrationTime = user.getRegistrationTime().toString();
         String email = user.getEmail();
 
         PurchasesDB purchasesDB = new PurchasesDB();
@@ -47,15 +47,14 @@ public class ProfileServlet extends HttpServlet {
         } else {
             req.setAttribute("lastProductName", lastProduct.getName());
         }
-        req.setAttribute("registrationTimestamp", registrationTimestamp);
+        req.setAttribute("registrationTime", registrationTime);
         if (email == null) {
             req.setAttribute("email", "-");
         } else {
             req.setAttribute("email", email);
         }
 
-        req.getServletContext().getRequestDispatcher("/profilepage.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher("/profilepage.ftl").forward(req, resp);
     }
-
 
 }

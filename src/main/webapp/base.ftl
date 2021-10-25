@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <title>SIMENS VINIL SHOP</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -11,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg" href="assets/icon.svg">
     <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
-    <@title></@title>
+    <script src="registration.js"></script>
     <style>
         body {
             background: #171515 url(assets/background.jpg); /* Цвет фона и путь к файлу */
@@ -43,12 +44,12 @@
     <#if username?has_content>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="/profilepage" class="nav-link text-light "><strong>${username}</strong></a>
+                <a href="/prof" class="nav-link text-light "><strong>${username}</strong></a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="/basketpage" class="nav-link text-light ">🛒Корзина</a>
+                <a href="/basketpage" class="nav-link text-light">🛒Корзина</a>
             </li>
         </ul>
     <#else>
@@ -60,8 +61,5 @@
     </#if>
 </nav>
 </header>
-
-<@content></@content>
-
 </body>
 </html>

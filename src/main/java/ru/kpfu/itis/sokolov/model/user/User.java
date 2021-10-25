@@ -37,7 +37,7 @@ public class User {
         this.id = id;
     }
 
-    public Timestamp getRegistrationTimestamp() {
+    public Timestamp getRegistrationTime() {
         return registrationTime;
     }
 
@@ -62,7 +62,7 @@ public class User {
     }
 
     public static User createNewUser(String username, String password){
-        if (username == null || password == null){
+        if (username == null || password == null) {
             return null;
         }
         User user = new User();
