@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "changeUsernameServlet", urlPatterns = "/changeUsername")
 public class ChangeUsernameServlet extends HttpServlet {
@@ -27,9 +28,14 @@ public class ChangeUsernameServlet extends HttpServlet {
         String oldUsername = (String) session.getAttribute("username");
 
         User user = userDao.getUserByName(oldUsername);
+        try {
+            userDao.changeUsernameById(user.getId(), newUsername);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         session.setAttribute("username", newUsername);
 
-        resp.sendRedirect("/profilepage.ftl");
+        resp.sendRedirect("/prof");
     }
 }

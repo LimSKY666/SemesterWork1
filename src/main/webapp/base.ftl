@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg" href="assets/icon.svg">
+    <link rel="icon" type="image/jpg" href="assets/icon.jpg">
     <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
     <script src="registration.js"></script>
     <style>

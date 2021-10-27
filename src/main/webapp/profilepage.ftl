@@ -15,7 +15,7 @@
             <div class="bg-light p-4 d-flex justify-content-start text-center">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">Пластинок куплено: <strong>${purchasesCount}</strong></h5><small class="text-muted"></small>
+                        <h5 class="font-weight-bold mb-0 d-block">Пластинок куплено: ${purchasesCount}</h5><small class="text-muted"></small>
                     </li>
                 </ul>
             </div>
