@@ -1,8 +1,8 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import ru.kpfu.itis.sokolov.model.music.Product;
-import ru.kpfu.itis.sokolov.model.music.ProductDaoImpl;
-import ru.kpfu.itis.sokolov.model.purchases.PurchasesDB;
+import ru.kpfu.itis.sokolov.model.Product;
+import ru.kpfu.itis.sokolov.dao.impl.ProductDaoImpl;
+import ru.kpfu.itis.sokolov.dao.impl.PurchasesDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,10 +22,10 @@ public class BuyPageServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String username = (String) session.getAttribute("username");
 
-        PurchasesDB purchasesDB = new PurchasesDB();
+        PurchasesDaoImpl purchasesDaoImpl = new PurchasesDaoImpl();
         List<Product> products = null;
         try {
-            products = purchasesDB.getLastPurchaseList(username);
+            products = purchasesDaoImpl.getLastPurchaseList(username);
         } catch (SQLException e) {
             e.printStackTrace();
         }

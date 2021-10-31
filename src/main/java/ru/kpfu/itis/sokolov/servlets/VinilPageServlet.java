@@ -1,7 +1,7 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import ru.kpfu.itis.sokolov.model.music.Product;
-import ru.kpfu.itis.sokolov.model.music.ProductDaoImpl;
+import ru.kpfu.itis.sokolov.model.Product;
+import ru.kpfu.itis.sokolov.dao.impl.ProductDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

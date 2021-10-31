@@ -1,6 +1,6 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import ru.kpfu.itis.sokolov.model.basket.BasketDaoImpl;
+import ru.kpfu.itis.sokolov.dao.impl.BasketDaoImpl;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

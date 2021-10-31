@@ -1,4 +1,7 @@
+<#include 'base.ftl'>
+
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/styles/basketpage.css">
 <br>
 <div style="text-align: center;"><h1>Поздравляем с покупкой!</h1></div>
 <form method="post" action="/buypage">

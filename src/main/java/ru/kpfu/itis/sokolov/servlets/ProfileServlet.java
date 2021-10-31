@@ -1,9 +1,9 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import ru.kpfu.itis.sokolov.model.music.Product;
-import ru.kpfu.itis.sokolov.model.purchases.PurchasesDB;
-import ru.kpfu.itis.sokolov.model.user.User;
-import ru.kpfu.itis.sokolov.model.user.UserDaoImpl;
+import ru.kpfu.itis.sokolov.model.Product;
+import ru.kpfu.itis.sokolov.dao.impl.PurchasesDaoImpl;
+import ru.kpfu.itis.sokolov.model.User;
+import ru.kpfu.itis.sokolov.dao.impl.UserDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,16 +27,16 @@ public class ProfileServlet extends HttpServlet {
         String registrationTime = user.getRegistrationTime().toString();
         String email = user.getEmail();
 
-        PurchasesDB purchasesDB = new PurchasesDB();
+        PurchasesDaoImpl purchasesDaoImpl = new PurchasesDaoImpl();
         int purchasesCount = 0;
         try {
-            purchasesCount = purchasesDB.getCountOfPurchase(username);
+            purchasesCount = purchasesDaoImpl.getCountOfPurchase(username);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         Product lastProduct = null;
         try {
-            lastProduct = purchasesDB.getLastPurchase(username);
+            lastProduct = purchasesDaoImpl.getLastPurchase(username);
         } catch (SQLException e) {
             e.printStackTrace();
         }

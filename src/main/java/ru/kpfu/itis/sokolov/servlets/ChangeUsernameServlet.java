@@ -1,7 +1,7 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import ru.kpfu.itis.sokolov.model.user.User;
-import ru.kpfu.itis.sokolov.model.user.UserDaoImpl;
+import ru.kpfu.itis.sokolov.model.User;
+import ru.kpfu.itis.sokolov.dao.impl.UserDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

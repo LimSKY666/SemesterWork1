@@ -1,8 +1,8 @@
 package ru.kpfu.itis.sokolov.servlets;
 
-import ru.kpfu.itis.sokolov.model.basket.BasketDaoImpl;
-import ru.kpfu.itis.sokolov.model.music.Product;
-import ru.kpfu.itis.sokolov.model.purchases.PurchasesDB;
+import ru.kpfu.itis.sokolov.dao.impl.BasketDaoImpl;
+import ru.kpfu.itis.sokolov.model.Product;
+import ru.kpfu.itis.sokolov.dao.impl.PurchasesDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +41,7 @@ public class BasketPage extends HttpServlet {
         String username = (String) session.getAttribute("username");
 
         BasketDaoImpl basketDB = new BasketDaoImpl();
-        PurchasesDB purchasesDB = new PurchasesDB();
+        PurchasesDaoImpl purchasesDaoImpl = new PurchasesDaoImpl();
 
         List<Product> products = new ArrayList<>();
         try {
@@ -50,7 +50,7 @@ public class BasketPage extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            purchasesDB.insertProductsIntoDB(username, products);
+            purchasesDaoImpl.insertProductsIntoDB(username, products);
         } catch (SQLException e) {
             e.printStackTrace();
         }
