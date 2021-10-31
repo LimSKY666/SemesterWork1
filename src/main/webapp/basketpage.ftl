@@ -9,6 +9,8 @@
     </tr>
     </thead>
     <tbody>
+    <#if username?has_content>
+    <#if products?has_content>
     <#list products as product>
         <tr>
             <td class="table-name">${product.getName()}</td>
@@ -23,3 +25,11 @@
 <form action="/basketpage" method="post">
     <div style="text-align: center;"><button class="buy_btn">Совершить покупку</button></div>
 </form>
+<#else>
+    <div style="text-align: center;"><h2>Добавьте товар в корзину!</h2></div>
+</#if>
+<#else>
+    <div style="text-align: center">
+        <a class='login' href="/login">Для покупки нужно авторизоваться!</a>
+    </div>
+</#if>
