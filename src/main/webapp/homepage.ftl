@@ -8,7 +8,7 @@
     <div class="card w-auto">
         <img class="card-img-top m-auto" src="/assets/bandana.jpg" alt="Альбом 1">
         <div class="card-body">
-            <h5 class="card-title">Banada I (Big Baby Tape & Kizaru)</h5>
+            <h5 class="card-title">Bandana I (Big Baby Tape & Kizaru)</h5>
             <p class="card-text">«Большинство новых релизов, которые сейчас выходят, — это, мать его, слабый рэп». «Собственно, "Bandana" была создана для того, чтобы это поменять». «Да, чтобы показать, как вообще можно делать» </p>
             <h5 class="card-title">999р</h5>
             <a href="/vinilpage?id=1" class="btn btn-light">Купить</a>
